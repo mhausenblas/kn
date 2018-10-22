@@ -35,20 +35,23 @@ The following commands are available:
 - `publish NAME PORT` … publishes the daemonized environment `NAME` by using port-forwarding of `PORT` in the environment (assuming something serves on this port in the container) to port `9898` locally, and, if enabled by `KN_POLICY`, makes it also publicly available using `ngrok`.
 - `ls` … lists all resources manged by `kn`.
 
-### Example
+## Examples
 
-Launching an interactive environment:
+Launching an interactive environment with `kn`:
 
 ```shell
+## launch interactive environment:
 $ kn up
 .......
 Copied content of /Users/mhausenblas/tmp to /tmp/work in the environment
 The environment [sandbox] is now ready!
 
+## list all environments:
 $ kn ls
 NAME      SINCE
 sandbox   2018-10-22T10:16:13Z
 
+## jump into the environment:
 $ kn connect
 connecting to sandbox-64dc6d6bf9-s6gzjsh-4.2#
 sh-4.2#
@@ -60,6 +63,7 @@ root        36    27  0 10:17 pts/0    00:00:00 ps -ef
 sh-4.2# exit
 exit
 
+## destroy the environment:
 $ kn down
 The environment [sandbox] has been destroyed, all data is gone the way of the dodo
 ```
