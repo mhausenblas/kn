@@ -12,7 +12,7 @@ set -o pipefail
 ### INIT #######################################################################
 
 ### include all the functions we gonna need
-source knlib.sh
+source ./knlib.sh
 
 ### command line arguments
 COMMAND="${1:-ls}"           # if no command given, default to list environments

@@ -9,10 +9,12 @@ function env_up {
     imode=$5
     pport=$6
     pod=$(kubectl -n $ns get po -l=run=$currentenv --output=jsonpath={.items[*].metadata.name})
+    #echo $1 $2 $3 $4 $5 $6
+
     # create a dedicated service account:
     kubectl -n $ns create sa $currentenv > /dev/null
     # launch environment depending on mode:
-    if [[ $imode = "interactive" ]]
+    if [[ $imode == "interactive" ]]
     then
         # launch interactive environment that stays up for 24h:
         kubectl -n $ns run $currentenv --image=$img --serviceaccount=$currentenv > /dev/null 2>&1 -- sleep 86400
@@ -28,7 +30,7 @@ function env_up {
             sleep 3
         done
         # if enabled, copy contents of current directory into environment at /tmp/work
-        if [[ $cppolicy = "true" ]]
+        if [[ $cppolicy == "true" ]]
         then
             srcdir=$(pwd)
             p=$(kubectl -n $ns get po -l=run=$currentenv --output=jsonpath={.items[*].metadata.name})
@@ -41,8 +43,9 @@ function env_up {
             printf "No port given, use: KN_MODE=daemon kn up NAME PORT"
             exit 1
         fi
-        # launch a daemon environment:
+        # launch a daemonized environment:
         kubectl -n $ns run $currentenv --image=$img --serviceaccount=$currentenv --port=$pport > /dev/null 2>&1
+        printf "The daemonized environment [$currentenv] is now ready!\nTo publish your environment, do: kn publish $currentenv $pport\n"
     fi
 }
 
