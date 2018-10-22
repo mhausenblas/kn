@@ -4,6 +4,8 @@ The basic idea behind `kn` is to use the fact that pods in Kubernetes are modell
 
 So, imagine you want to try something out real quick? Do a short iteration using a scripting language such as Python, Ruby, or Node.js? Might want to jump on a container to debug something in-cluster? Run a quick load test? Then, `kn` is for you: it offers a collection of shell functions allowing you to quickly launch a pod, jump into it and have the code and data available you need to carry out your task.
 
+**Note that this tool is meant to be used in dev and test environments. Use at your own risk.**
+
 ## Install
 
 Clone or download this repo, copy `kn*.sh` somewhere on your path. If you're super fancy, you can set an alias like so. Since I moved the script to `/Users/mhausenblas/bin/`, I'm using this alias:
