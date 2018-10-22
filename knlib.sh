@@ -85,7 +85,7 @@ function env_publish {
     # if enabled, publish environment to public
     if [[ $ppolicy = "public" ]]
     then
-        if ! [ -x "$(command -v git)" ]; then
+        if ! [ -x "$(command -v ngrok)" ]; then
             printf "Sorry, need https://ngrok.com installed to publish the environment"
         else
             ngrok http 9898
