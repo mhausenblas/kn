@@ -6,7 +6,7 @@ So, imagine you want to try something out real quick? Do a short iteration using
 
 ## Install
 
-Clone or download this repo, copy `kn.sh` somewhere on your path. If you're super fancy, you can set an alias like so. Since I moved the script to `/Users/mhausenblas/bin/`, I'm using this alias:
+Clone or download this repo, copy `kn*.sh` somewhere on your path. If you're super fancy, you can set an alias like so. Since I moved the script to `/Users/mhausenblas/bin/`, I'm using this alias:
 
 ```shell
 alias kn='/Users/mhausenblas/bin/kn.sh'
