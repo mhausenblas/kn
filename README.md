@@ -1,4 +1,4 @@
-# The Kubernetes native experience: `kn`
+# A Kubernetes native shell experience: `kn`
 
 The basic idea behind `kn` is to use the fact that pods in Kubernetes are modelled after machines. That is, the apps running in containers in the pod can communicate with each other via `localhost` and transfer data via volumes they can mount into their own filesystem hierarchy as they see fit.
 
