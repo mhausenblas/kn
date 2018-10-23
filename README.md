@@ -8,13 +8,13 @@ So, imagine you want to try something out real quick? Do a short iteration using
 
 ## Install
 
-Simply Git clone or download this repo from the [release page](https://github.com/mhausenblas/kn/releases/latest), and copy `kn*.sh` somewhere on your path. If you're super fancy, you can set an alias like so. Since I moved the script to `/Users/mhausenblas/bin/`, I'm using this alias:
+Simply Git clone or download this repo from the [release page](https://github.com/mhausenblas/kn/releases/latest), and copy `kn*.sh` somewhere on your path. If you're super fancy, you can set an alias like so: (since I moved the script to `/Users/mhausenblas/bin/`):
 
 ```shell
 alias kn='/Users/mhausenblas/bin/kn.sh'
 ```
 
-I've tested `kn` in the Bash shell on macOS and Linux. The `kn` tool assumes that you have got `kubectl` [installed and configured](https://kubernetes.io/docs/tasks/tools/install-kubectl/). If you also want to benefit from exposing an environment to the public (optional feature), then you need to install [ngrok](https://ngrok.com/) as an dependency.
+I've tested `kn` in the Bash shell v3.2 on macOS and Linux. Note that in order to work `kn` requires you to have `kubectl` [installed and configured](https://kubernetes.io/docs/tasks/tools/install-kubectl/). If you also want to use the (optional) feature to expose an environment to the public, you need to have [ngrok](https://ngrok.com/) installed and configured.
 
 ## Use
 
