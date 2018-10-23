@@ -63,12 +63,12 @@ function env_down {
     currentenv=$2
     kubectl -n $ns delete deployment $currentenv > /dev/null
     kubectl -n $ns delete sa $currentenv > /dev/null
-    # TODO: fix the port-forward clean up:
-    # pfpid=$(ps | grep '[9]898' | awk '{ print $1 }')
-    # if [[ $pfpid != "" ]]; then
-    #     # kill $pfpid
-    #     printf "$pfpid"
-    # fi
+    if [ -x "$(command -v pkill)" ]
+    then
+        pkill -if "kubectl -n kn port-forward"
+    else
+        kill $(ps -ef | grep '[k]ubectl.*port-forward' | awk '{print $2}')
+    fi
     printf "The environment [$currentenv] has been destroyed, all data is gone the way of the dodo\n"
 }
 
@@ -85,7 +85,8 @@ function env_publish {
     # if enabled, publish environment to public
     if [[ $ppolicy = "public" ]]
     then
-        if ! [ -x "$(command -v ngrok)" ]; then
+        if ! [ -x "$(command -v ngrok)" ]
+        then
             printf "Sorry, need https://ngrok.com installed to publish the environment"
         else
             ngrok http 9898

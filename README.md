@@ -109,5 +109,3 @@ pong
 $ kn down psvc
 The environment [psvc] has been destroyed, all data is gone the way of the dodo
 ```
-
-Note: currently, you need to manually get rid of the `kubectl port-forward`, use something like `ps -ef | grep kubectl` to find the process and kill it.
